@@ -28,8 +28,7 @@ public class Person implements ReadOnlyPerson {
         this.address = address;
         this.tags = new UniqueTagList(tags); // protect internal tags from changes in the arg list
         
-        sequenceNumber = nextSequenceNumber;
-        nextSequenceNumber++;
+        this.setSequenceNumber(nextSequenceNumber++);
     }
 
     /**
@@ -88,5 +87,13 @@ public class Person implements ReadOnlyPerson {
     public String toString() {
         return getAsTextShowAll();
     }
+
+	public int getSequenceNumber() {
+		return sequenceNumber;
+	}
+
+	public void setSequenceNumber(int sequenceNumber) {
+		this.sequenceNumber = sequenceNumber;
+	}
 
 }
